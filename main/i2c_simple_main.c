@@ -221,9 +221,9 @@ ESP_ERROR_CHECK(tmp114_read_temperature(0x00, data2, 2));
             data_rx[len] = '\0'; // 确保字符串正确终止
             // 尝试从接收到的数据中提取三个浮点数
             int result = sscanf((char *)data_rx,"%lf,%lf,%lf,%lf", &val1, &val2, &val3,&val4);
-            if (result == 4) {
+           
                 PID_Init(&pid, val2, val3, val4); // 初始化 PID 参数
-            }
+            printf("设置:%f,%f,%f,%f\n", val1,val2,val3,val4);
         }
 
 
